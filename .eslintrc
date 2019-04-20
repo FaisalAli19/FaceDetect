@@ -2,9 +2,10 @@
   "parser": "babel-eslint",
   "env": {
     "node": true,
-    "es6": true
+    "es6": true,
+    "browser": true
   },
-  "plugins": ["react"],
+  "plugins": ["react", "jsx-a11y", "import"],
   "settings": {
     "ecmascript": 6
   },
@@ -12,5 +13,30 @@
     "ecmaFeatures": {
       "jsx": true
     }
+  },
+  "extends": "airbnb",
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-console": "off",
+    "react/prop-types": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off"
   }
 }
