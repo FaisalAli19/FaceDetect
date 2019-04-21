@@ -1,0 +1,5 @@
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_PENDING = 'LOGIN_PENDING';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const UPDATE_USER_STATE = 'UPDATE_USER_STATE';
+export const LOGOUT_USER = 'LOGOUT_USER';
