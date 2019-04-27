@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "yarn": "1.3.0"
+    "yarn": "1.x"
   },
   "dependencies": {
     "clarifai": "^2.9.0",
