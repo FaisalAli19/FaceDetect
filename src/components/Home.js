@@ -7,6 +7,7 @@ import Logo from './Logo/Logo';
 import Rank from './Rank/Rank';
 
 import { updateEntries } from '../store/actions/actions';
+import url from '../api';
 
 class Home extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class Home extends Component {
     const { incrementEntries, id } = this.props;
     if (input) {
       this.setState(state => ({ imageUrl: state.input }));
-      fetch('http://localhost:5000/imageUrl', {
+      fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
