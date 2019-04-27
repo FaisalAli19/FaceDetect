@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Clarifai from 'clarifai';
 import { connect } from 'react-redux';
 
 import FaceRecognition from './FaceRecognition/FaceRecognition';
@@ -8,10 +7,6 @@ import Logo from './Logo/Logo';
 import Rank from './Rank/Rank';
 
 import { updateEntries } from '../store/actions/actions';
-
-const app = new Clarifai.App({
-  apiKey: process.env.REACT_APP_CLARIFAI_FACEDETECT_API,
-});
 
 class Home extends Component {
   constructor(props) {
@@ -57,8 +52,16 @@ class Home extends Component {
     const { incrementEntries, id } = this.props;
     if (input) {
       this.setState(state => ({ imageUrl: state.input }));
-      app.models
-        .predict(Clarifai.FACE_DETECT_MODEL, input)
+      fetch('http://localhost:5000/imageUrl', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          input,
+        }),
+      })
+        .then(res => res.json())
         .then((response) => {
           this.displayFace(this.calculateFaceLocation(response));
           incrementEntries({ id });
